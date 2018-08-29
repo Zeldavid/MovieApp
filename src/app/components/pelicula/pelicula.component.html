@@ -1,0 +1,21 @@
+<h1 class="title-heroe">
+    <small></small> </h1>
+<hr>
+<div class="row heroe-container">
+    <div class="col-md-4">
+        <img class="img-fluid rounded" src="{{ mov.Poster }}" alt="{{ mov.Title }}">
+        <h2>{{ mov.Title }}</h2>
+        <a [routerLink]="['/search']" class="btn btn-primary btn-block heroe-button d-none d-md-block ">Volver</a>
+    </div>
+    <div class="col-md-8">
+        <h2>Seasons</h2>
+        <div *ngFor="let season of seasons; let i = index" class="series-btn">
+            <button type="button" class="btn btn-outline-secondary">{{i+1}}</button>
+        </div>
+        <p class="heroe-text">
+        </p>
+    </div>
+    <div class="col-md-12 d-md-none d-sm-block">
+        <a [routerLink]="['/search']" class="btn btn-primary btn-block heroe-button">Volver</a>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Buscar pelicula..." (keydown)="buscar(termino.value)" #termino>
+    </div>
+</div>
+
+<div *ngIf="!response" class="alert alert-danger mt-4" role="alert">
+    {{this.error}} {{!response}}
+</div>
+
+<div *ngIf="response" class="card-columns mt-4">
+    <div class="card card-style" *ngFor="let pelicula of peliculas; let i = index" (click)="verInfo(pelicula.imdbID)" (mouseenter)="mouseEnter(tarjeta, pelicula.imdbID) " (mouseleave)="mouseLeave()" #tarjeta>
+        <img class="card-img-top" [src]="pelicula.Poster" alt="pelicula.Title">
+        <div class="card-body">
+            <h5 class="card-title">{{pelicula.Title}}</h5>
+            <!-- <span>{{pelicula.imdbID}}</span> -->
+            <!-- <div *ngIf="infoResponse"> -->
+            <div *ngIf="infoResponse">
+                <h6>Ratings</h6>
+                <div *ngFor="let peliculaInfo of infoMovieRatigs; let i = index">
+                    <span>{{peliculaInfo.Source}}: </span><span>{{peliculaInfo.Value}}</span>
+                </div>
+                <h6>Actores</h6>
+                <span>{{infoMovie.Actors}}: </span>
+            </div>
+        </div>
+    </div>
+</div>
